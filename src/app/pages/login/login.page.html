@@ -17,5 +17,12 @@
     <ion-input [(ngModel)]="password" type="password"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
+  <ion-button expand="full" (click)="login()" id="present-alert">Iniciar Sesión</ion-button>
+  <ion-alert *ngIf="showAlert"
+  trigger="present-alert"
+  header="Inicio de Sesión Fallido"
+  subHeader="Verifica el correo y la contraseña."
+  [buttons]="alertButtons"
+></ion-alert>
+
 </ion-content>
