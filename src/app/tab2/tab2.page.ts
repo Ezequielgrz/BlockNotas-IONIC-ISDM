@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NoteService } from '../services/note.service';
+
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,20 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  newNoteTitle: string = '';
+  newNoteText: string = '';
+
+  constructor(private noteService: NoteService) {}
+
+  createNote() {
+    if (this.newNoteTitle.trim() !== '' && this.newNoteText.trim() !== '') {
+      this.noteService.addNote({
+        title: this.newNoteTitle,
+        text: this.newNoteText
+      });
+      this.newNoteTitle = '';
+      this.newNoteText = '';
+    }
+  }
 
 }
