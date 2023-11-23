@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   email: string = '';
   password: string = '';
-  showAlert: boolean = true;
+  showAlert: boolean = false;
 
   alertButtons = ['Action'];
 
@@ -23,7 +23,6 @@ export class LoginPage implements OnInit {
       this.router.navigate(['tabs']);
       
     } else {
-      this.showAlert = false;
       console.log('Inicio de sesión fallido. Verifica el correo y la contraseña.');
       
     }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NoteService } from '../services/note.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class Tab2Page {
   newNoteTitle: string = '';
   newNoteText: string = '';
 
-  constructor(private noteService: NoteService) {}
+  constructor(private noteService: NoteService, private router: Router) {}
 
   createNote() {
     if (this.newNoteTitle.trim() !== '' && this.newNoteText.trim() !== '') {
@@ -23,6 +24,9 @@ export class Tab2Page {
       this.newNoteTitle = '';
       this.newNoteText = '';
     }
+  }
+  goToTab1() {
+    this.router.navigate(['tabs']);
   }
 
 }
